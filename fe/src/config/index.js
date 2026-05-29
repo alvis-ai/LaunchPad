@@ -1,0 +1,76 @@
+import contractAddresses from '../../../contracts/deployments/contract-addresses.json';
+
+// staking address
+export const stakingPoolAddresses = [
+    {
+        chainId: 11155111,
+        stakingAddress: contractAddresses['sepolia']['AllocationStakingProxy'],
+        depositTokenAddress: contractAddresses['sepolia']['LaunchPad-TOKEN'], // 填LaunchPad-Token的地址
+        earnedTokenAddress: contractAddresses['sepolia']['LaunchPad-TOKEN'], // 填LaunchPad-Token的地址
+    },
+    {
+        chainId: 31337,
+        stakingAddress: contractAddresses['local']['AllocationStakingProxy'], // 填AllocationStakingProxy的地址
+        depositTokenAddress: contractAddresses['local']['LaunchPad-TOKEN'], // 填LaunchPad-Token的地址
+        earnedTokenAddress: contractAddresses['local']['LaunchPad-TOKEN'], // 填LaunchPad-Token的地址
+    },
+];
+
+export const API_DOMAIN = process.env.NEXT_PUBLIC_SERVER_DOMAIN;
+
+export const VALID_CHAIN_IDS = [
+    11155111,
+    31337,
+];
+
+export * from "./valid_chains";
+
+// 0: bre pool 1: boba pool
+export const STAKING_POOL_ID = 0;
+
+export const APPROVE_STAKING_AMOUNT_ETHER = 1000000;
+
+export const TELEGRAM_BOT_ID = process.env.NEXT_PUBLIC_TG_BOT_ID;
+
+export const BASE_URL = "https://pancakeswap.finance";
+export const BASE_BSC_SCAN_URL = "https://bscscan.com";
+
+export const tokenAbi = [
+    // Read-Only Functions
+    "function deposited(uint256 pid, address to) view returns (uint256)",
+    "function balanceOf(address owner) view returns (uint256)",
+    "function decimals() view returns (uint8)",
+    "function symbol() view returns (string)",
+    "function allowance(address owner, address spender) view returns (uint256)",
+    "function userInfo(uint pid, address spender) view returns (uint256)",
+    "function poolInfo(uint pid) view returns (uint256)",
+
+    // Authenticated Functions
+    "function deposit(uint256 pid, uint256 amount) returns (bool)",
+    "function withdraw(uint256 pid, uint256 amount) returns (bool)",
+    "function approve(address spender, uint256 amount) returns (bool)",
+    "function transfer(address to, uint amount) returns (bool)",
+
+    // Events
+];
+
+export const tokenImage =
+    "http://bobabrewery.oss-ap-southeast-1.aliyuncs.com/brewery_logo.jpg";
+
+export const tokenSymbols = [
+    { chainId: 11155111, symbol: 'LaunchPad', address: contractAddresses['sepolia']['LaunchPad-TOKEN'] },
+    { chainId: 31337, symbol: 'LaunchPad', address: contractAddresses['local']['LaunchPad-TOKEN'] },
+]
+
+export const tokenInfos = [
+    { chainId: 11155111, symbol: 'LaunchPad', address: contractAddresses['sepolia']['LaunchPad-TOKEN'] },
+    { chainId: 31337, symbol: 'LaunchPad', address: contractAddresses['local']['LaunchPad-TOKEN'] },
+]
+
+export const airdropContract = [{
+    chainId: 11155111,
+    address: contractAddresses['sepolia']['Airdrop-LaunchPad'],
+}, {
+    chainId: 31337,
+    address: contractAddresses['local']['Airdrop-LaunchPad'],
+}] // AIRDROP_TOKEN的地址：Airdrop-LaunchPad

@@ -1,0 +1,14 @@
+ENV: "production"
+PORT: "8080"
+DATABASE:
+  HOST: "mysql-db"
+  PORT: "3306"
+  USER: "root"
+  PASSWORD: "123456"
+  NAME: "brewery"
+
+OWNER:
+  PRIVATE_KEY: ""
+  NETWORK_URL: "http://host.docker.internal:8545"
+SALES:
+  SALE_FACTORY_ADDRESS: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318"
